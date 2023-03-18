@@ -15,4 +15,19 @@ entries:
     urls:
     - https://github.com/Guyeise1/helm-charts/releases/download/fastly-logging-1.0.0/fastly-logging-1.0.0.tgz
     version: 1.0.0
-generated: "2023-03-11T21:59:31.948813381Z"
+  fastly-logging-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-03-18T18:38:28.755122075Z"
+    description: A Helm chart for Kubernetes
+    digest: b4254da66046dcfd2fdde7dfdd76d144a3ce9cad0823cb4bcd0069242c49fdac
+    icon: https://www.fastly.com/favicon.ico
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: fastly-logging-server
+    type: application
+    urls:
+    - https://github.com/Guyeise1/helm-charts/releases/download/fastly-logging-server-1.0.0/fastly-logging-server-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-03-18T18:38:28.755126075Z"
