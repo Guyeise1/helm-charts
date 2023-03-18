@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }} 
+  name: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }} 
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }} 
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }} 
+    spec:
+      containers:
+      - image: guyeise5/squares-app:latest
+        name: squares-app
+        ports:
+        - containerPort: 8080
+        env:
+          - name: MY_COLOR
+            value: {{ .Values.color }} 
+        readinessProbe:
+          initialDelaySeconds: {{ .Values.initialDelaySeconds }} 
+          failureThreshold: 1
+          httpGet:
+            port: 8080
+            path: /health/ready

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }}
+  name: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }}
+spec:
+  ports:
+  - port: {{ .Values.service.port }} 
+    name: web
+    protocol: TCP
+    targetPort: 8080
+    nodePort: {{ .Values.service.nodePort }}
+  selector:
+    app: {{ .Values.nameOverride | default (print .Release.Name "-squares-app") }}
+  type: {{ .Values.service.type }} 

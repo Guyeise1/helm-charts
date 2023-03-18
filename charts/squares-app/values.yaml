@@ -1,0 +1,11 @@
+nameOverride: ""
+color: red
+replicas: 3
+initialDelaySeconds: 5
+ingress:
+  enabled: false
+  host: ""
+service:
+  port: 80
+  nodePort: ""
+  type: ClusterIP
