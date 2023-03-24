@@ -18,6 +18,19 @@ entries:
   squares-app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-03-24T18:46:19.185670627Z"
+    description: A demo application to show k8s rollout process
+    digest: e575d783da2705e86eafe16853fedd3bc670e58b895ec1c65323cd10c0a88051
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: squares-app
+    type: application
+    urls:
+    - https://github.com/Guyeise1/helm-charts/releases/download/squares-app-1.0.1/squares-app-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-03-18T21:45:12.82027039Z"
     description: A demo application to show k8s rollout process
     digest: 0b30d2140bfd35291f3d0ac3b8a71f7db25547509a4eb27d1a87f4eec067d3de
@@ -29,4 +42,4 @@ entries:
     urls:
     - https://github.com/Guyeise1/helm-charts/releases/download/squares-app-1.0.0/squares-app-1.0.0.tgz
     version: 1.0.0
-generated: "2023-03-18T21:45:12.820289591Z"
+generated: "2023-03-24T18:46:19.185682028Z"
