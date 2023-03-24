@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.nameOverride | default (print .Release.Name "-square-app") }}
+  name: {{ .Values.nameOverride | default (print .Release.Name "-square-apps") }}
 spec:
   rules:
   - host: {{ .Values.ingress.host }} 
@@ -10,7 +10,7 @@ spec:
       paths:
       - backend:
           service:
-            name: {{ .Values.nameOverride | default (print .Release.Name "-square-app") }}
+            name: {{ .Values.nameOverride | default (print .Release.Name "-square-apps") }}
             port:
               name: web
         path: /
