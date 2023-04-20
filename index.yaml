@@ -14,4 +14,18 @@ entries:
     urls:
     - https://github.com/Guyeise1/helm-charts/releases/download/fastly-logging-1.1.2/fastly-logging-1.1.2.tgz
     version: 1.1.2
-generated: "2023-04-20T19:24:17.753670071Z"
+  squares-app:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-20T20:12:27.13752653Z"
+    description: A demo application to show k8s rollout process
+    digest: bd77ec7cfcb2e2561b79270547477636736ad279b0c117bc63e9be812b92261d
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: squares-app
+    type: application
+    urls:
+    - https://github.com/Guyeise1/helm-charts/releases/download/squares-app-1.0.2/squares-app-1.0.2.tgz
+    version: 1.0.2
+generated: "2023-04-20T20:12:27.13753193Z"
