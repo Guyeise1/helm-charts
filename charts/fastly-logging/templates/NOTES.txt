@@ -1,0 +1,19 @@
+Thank you for installing {{ .Chart.Name }}.
+
+Your release is named {{ .Release.Name }}.
+
+To learn more about the release, try:
+  $ helm status {{ .Release.Name }}
+  $ helm get all {{ .Release.Name }}
+
+To see the logs, try:
+  $ kubectl logs -n {{ .Release.Namespace }} deployment/{{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
+  
+{{- if .Values.ngrok.enabled }}
+To see ngrok logs, try: 
+  $ kubectl logs -n {{ .Release.Namespace }} deployment/{{ .Values.nameOverride | default (print .Release.Name "ngrok-fastly-logging") }}
+{{- end}}
+
+{{- if and .Values.ngrok.enabled (not .Values.ngrok.authToken)}} 
+WARNING - ngrok is enabled but ngrok.authToken was not provided.
+{{- end}}

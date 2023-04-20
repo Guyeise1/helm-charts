@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
+  name: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
+    spec:
+      containers:
+      - image: {{ print .Values.image.repository ":" .Values.image.tag }}
+        name: app
+        ports:
+        - containerPort: 8080
+        env:
+        {{- if .Values.authToken }}
+        - name: AUTH_TOKEN
+          value: {{.Values.security.authToken | quote}}
+        {{- end}}
+        - name: FASTLY_SERVICES
+          value: {{ join "," .Values.security.fastlyServices | quote }}
