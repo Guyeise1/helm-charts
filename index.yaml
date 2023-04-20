@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  fastly-logging:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-20T19:24:17.75365697Z"
+    description: An application used to show logs from Fastly service.
+    digest: 8cf35f3817d79dc77ceb15873cb4b320499966f3c6135e3d06090ee775c394b3
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: fastly-logging
+    type: application
+    urls:
+    - https://github.com/Guyeise1/helm-charts/releases/download/fastly-logging-1.1.2/fastly-logging-1.1.2.tgz
+    version: 1.1.2
+generated: "2023-04-20T19:24:17.753670071Z"
