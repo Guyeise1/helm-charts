@@ -1,4 +1,4 @@
-# Fastly Logging Server
+# Fastly Logging
 
 ## TL;DR
 
