@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: fastly-logger
+  name: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
 spec:
   rules:
     - host: {{.Values.ingress.host}}
@@ -12,7 +12,7 @@ spec:
             path: /
             backend:
               service:
-                name: fastly-logger
+                name: {{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}
                 port:
-                  number: 80
+                  name: app
 {{- end}}

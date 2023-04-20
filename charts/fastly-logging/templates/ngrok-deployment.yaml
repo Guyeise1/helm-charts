@@ -1,0 +1,36 @@
+{{- if .Values.ngrok.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.nameOverride | default (print .Release.Name "ngrok-fastly-logging") }}
+  name: {{ .Values.nameOverride | default (print .Release.Name "ngrok-fastly-logging") }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.nameOverride | default (print .Release.Name "ngrok-fastly-logging") }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nameOverride | default (print .Release.Name "ngrok-fastly-logging") }}
+    spec:
+      containers:
+      - image: {{ print .Values.ngrok.image.repository ":" .Values.ngrok.image.tag }}
+        name: ngrok
+        command: 
+        - ngrok
+        args: 
+        - http
+  {{- if .Values.ngrok.region }}
+        - --region={{ .Values.ngrok.region }}
+  {{- end }}
+  {{- if .Values.ngrok.hostName}}
+        - --hostname={{ .Values.ngrok.hostName }}
+  {{- end }}
+        - --log=stdout
+        - http://{{ .Values.nameOverride | default (print .Release.Name "-fastly-logging") }}:{{ .Values.service.port }}
+        env:
+        - name: NGROK_AUTHTOKEN
+          value: {{ .Values.ngrok.authToken }}
+  {{- end}}

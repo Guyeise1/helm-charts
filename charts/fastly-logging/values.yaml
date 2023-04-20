@@ -1,0 +1,24 @@
+security:
+  authToken: ""
+  fastlyServices: []
+
+image:
+  repository: guyeise5/fastly-logging
+  tag: 1.1.1
+
+service:
+  port: 8080
+  type: ClusterIP
+  nodePort: ""
+
+ingress:
+  enabled: false
+  host: ""
+
+ngrok:
+  enabled: false
+  authToken: ""
+  region: ""
+  image:
+    repository: ngrok/ngrok
+    tag: alpine
