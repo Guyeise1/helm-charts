@@ -1,6 +1,6 @@
 apiVersion: v2
 name: fastly-logging
-description: A server used to show logs from Fastly service.
+description: An application used to show logs from Fastly service.
 
 # A chart can be either an 'application' or a 'library' chart.
 #
